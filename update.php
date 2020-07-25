@@ -55,8 +55,29 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 
+  <script>
+
+function validateage() {
+  var x = document.forms["update"]["age"].value;
+  var y = document.forms["update"]["type"].value;
+  console.log(x);
+  console.log(y);
+  if ((x>8) && (y !='senior')) {
+    document.getElementById("errorage").innerHTML= "a animal older than 8 years old should be a senior animal: please correct your selection";
+    return false;
+  }
+if ((x<=8) && (y =='senior')) {
+    document.getElementById("errorage").innerHTML= "a animal younger than 8 years old should be a large or a small animal: please correct your selection";
+    return false;
+  }
+
+
+
+}
+</script>
+
  <div id="contactForm">
-<form class="mx-5" action="actions/a_update.php" method= "post">
+<form name="update" class="mx-5" action="actions/a_update.php" onsubmit="return validateage()" method= "post">
   
 
   
@@ -90,11 +111,12 @@ if (isset($_GET['id'])) {
      <label for="type">Type</label>
     <select class="form-control" id="exampleFormControlSelect1" name="type">
        <option hidden><?php echo $data['type'] ?></option>
-      <option>small</option>
-      <option>large</option>
-      <option>senior</option>
+      <option value="small">small</option>
+      <option value="large">large</option>
+      <option value="senior">senior</option>
     </select>
   </div>
+    <span  class="text-danger" id="errorage"></span>
 </div>
 
 <div class="form-group col-md-12">

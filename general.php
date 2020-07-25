@@ -26,7 +26,7 @@ if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"])&& !isset($_SESSION["s
 <head>
   
 
-   <title>The Library</title>
+   <title>The Pet adoption</title>
 
    
 </head>

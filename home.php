@@ -28,7 +28,7 @@ session_start();
 <head>
   
 
-   <title>The Library</title>
+   <title>The Pet Adoption</title>
 
    
 </head>

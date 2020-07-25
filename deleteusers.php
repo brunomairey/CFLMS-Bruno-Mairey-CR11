@@ -52,7 +52,7 @@ if ($_GET['userId']) {
 }
 
 else {
-  echo "c'Est la merde";
+  echo "there is an issue somewhere: call your webmaster";
 }
 ?>
 <?php echo $footer; ?>
