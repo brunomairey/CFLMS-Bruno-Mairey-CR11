@@ -5,6 +5,7 @@
  $url3 = "senior.php";
   $url4 = "create.php";
    $url5 = "users.php";
+    $url6 = "search.php";
 require_once 'actions/db_connect.php';
 
  ob_start();

@@ -6,7 +6,7 @@
  $url3 = "senior.php";
   $url4 = "create.php";
    $url5 = "senior.php";
-     $url6 = "search.html";
+     $url6 = "search.php";
   include 'actions/db_connect.php'; 
 
 

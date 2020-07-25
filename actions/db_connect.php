@@ -45,9 +45,9 @@
 session_start();
     
   if ( isset($_SESSION['user'])!="" || isset($_SESSION['admin'])!="" || isset($_SESSION['superadmin'])!="") {
- $logoutlink= "<form class=\"form-inline my-2 my-lg-0\">
+ $logoutlink= "<form class=\"form-inline m-2 my-lg-0\">
            <a href=\"".$url6."\"><button class=\"btn btn-outline-light my-2 my-sm-0\" type=\"button\">Search</button></a>
-        <a href=\"actions/logout.php?logout\"><button class=\"btn btn-outline-light my-2 my-sm-0\" type=\"button\">Logout</button></a>
+        <a href=\"actions/logout.php?logout\"><button class=\"btn btn-outline-light m-2 my-sm-0\" type=\"button\">Logout</button></a>
     </form>";
 
 }
