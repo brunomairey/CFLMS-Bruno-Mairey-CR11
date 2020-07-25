@@ -89,7 +89,7 @@ if ( isset($_POST['btn-signup']) ) {
   $passError = "Please enter password.";
  } else if(strlen($pass) < 6) {
   $error = true;
-  $passError = "Password must have atleast 6 characters." ;
+  $passError = "Password must have at least 6 characters." ;
  }
 
  // password validation : reenter
@@ -98,7 +98,7 @@ if ( isset($_POST['btn-signup']) ) {
   $repassError = "Please reenter password.";
  } else if(strlen($repass) < 6) {
   $error = true;
-  $repassError = "Password must have atleast 6 characters." ;
+  $repassError = "Password must have at least 6 characters." ;
  }
 
 else if($repass !== $pass) {

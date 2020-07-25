@@ -19,6 +19,8 @@ if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"]) && !isset($_SESSION["
   // header("Refresh: 5; url= admin.php")
 }
 
+
+
  ?>
 <!DOCTYPE html>
 
@@ -42,8 +44,33 @@ if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"]) && !isset($_SESSION["
 
 </head>
 <body>
+
+
+
+<script>
+
+function validateage() {
+  var x = document.forms["create"]["age"].value;
+  var y = document.forms["create"]["type"].value;
+  console.log(x);
+  console.log(y);
+  if ((x>8) && (y !='senior')) {
+    document.getElementById("errorage").innerHTML= "a animal older than 8 years old should be a senior animal: please correct your selection";
+    return false;
+  }
+if ((x<=8) && (y =='senior')) {
+    document.getElementById("errorage").innerHTML= "a animal younger than 8 years old should be a large or a small animal: please correct your selection";
+    return false;
+  }
+
+
+
+}
+</script>
+
   <div id="contactForm">
-<form class="mx-5" action="actions/a_create.php" method= "post">
+
+<form name="create" class="mx-5" action="actions/a_create.php" onsubmit="return validateage()" method= "post">
   
 
   
@@ -60,7 +87,7 @@ if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"]) && !isset($_SESSION["
   <div class="form-row col-md-12">
     <div class="form-group col-md-5 mr-5">
       <label for="zip_code">Zipcode</label>
-      <input type="number" class="form-control" name="zip_code" placeholder="1030" step="1">
+      <input type="number" class="form-control" name="zip_code" placeholder="1030" step="1" min="1000" max="99999">
     </div>
     <div class="form-group col-md-5 ml-5">
     <label for="city">City</label>
@@ -70,17 +97,18 @@ if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"]) && !isset($_SESSION["
 <div class="form-row col-md-12">
       <div class="form-group col-md-5 mr-5">
       <label for="age">Age of the animal</label>
-      <input type="number" class="form-control" name="age" placeholder="1" step="1">
+      <input type="number" class="form-control" name="age" placeholder="1" step="1" min="1" max="95">
       </div>
 
      <div class="form-group col-md-5 ml-5">
      <label for="type">Type</label>
     <select class="form-control" id="exampleFormControlSelect1" name="type">
-      <option selected>small</option>
-      <option>large</option>
-      <option>senior</option>
+      <option value="small" selected>small</option>
+      <option value="large">large</option>
+      <option value="senior">senior</option>
     </select>
   </div>
+  <span  class="text-danger" id="errorage"></span>
 </div>
 
 <div class="form-group col-md-12">
@@ -94,26 +122,23 @@ if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"]) && !isset($_SESSION["
 </div>
 
  
-
-
-
     <div class="form-group col-md-12">
     <label for="img">Image link</label>
     <input type="text" class="form-control" name="img" placeholder="Insert Image link">
     </div>
-  <!--   please let this code - it is to import an image from file server
-  <div class="form-group">
-    <label for="exampleFormControlFile1">Example file input</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-  </div> -->
+
   <div class="col-md-12">
-  <button type="submit" class="btn btn-dark btn-lg mx-5">Insert Pet</button>
+  <button class="btn btn-dark btn-lg mx-5" type="submit">Insert Pet</button>
    <a class="btn btn-dark btn-lg" href="admin.php" type="button" role="button">
     Back to main Page
   </a>
 </div>
 </form>
 </div>
+
+
+
+
 <?php $connect->close(); ?>
 </body>
 <?php echo $footer; ?>
